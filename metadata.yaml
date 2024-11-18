@@ -1,0 +1,5 @@
+homepage: "https://www.raventic.com"
+documentation: "https://doc.raventic.dev/semantic-search/"
+versions:
+  - sha: f4e0987946f39f3c95900f31cce7f4af2bc73f28
+    changeNotes: Initial version
