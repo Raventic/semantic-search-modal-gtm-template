@@ -334,6 +334,25 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ]
+      },
+      {
+        "type": "TEXT",
+        "name": "zIndex",
+        "displayName": "Widget zIndex",
+        "simpleValueType": true,
+        "defaultValue": 99999,
+        "valueValidators": [
+          {
+            "type": "POSITIVE_NUMBER",
+            "enablingConditions": [
+              {
+                "paramName": "zIndex",
+                "paramValue": "\"\"",
+                "type": "NOT_EQUALS"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -598,7 +617,7 @@ const makeTableMap = require('makeTableMap');
 const encodeUri = require('encodeUri');
 
 const initWidget = () => {
-  const version = "2024011111";
+  const version = "2025022401";
 
   const dataLayerPush = createQueue('dataLayer');
   const raventicLayerPush = createQueue('raventicLayer');
@@ -702,6 +721,8 @@ const initWidget = () => {
       wouldYouLikeToSearchForMessage: data.wouldYouLikeToSearchForMessage ? data.wouldYouLikeToSearchForMessage : undefined,
 
       cartConfig: cc,
+      
+      zIndex: data.zIndex ? data.zIndex : 99999,
     },
     (instanceId) => {
       dataLayerPush({
@@ -751,9 +772,9 @@ const initWidget = () => {
 };
 
 if (data.mode === "production") {
-  injectScript("https://sdk.rvndn.com/semsearch/v1/modal.min.js?v=202411138", initWidget, data.gtmOnFailure);
+  injectScript("https://sdk.rvndn.com/semsearch/v1/modal.min.js?v=2025022401", initWidget, data.gtmOnFailure);
 } else {
-  injectScript("https://sdk.rvndn.com/semsearch/v1/modal.dev.min.js?v=202411138", initWidget, data.gtmOnFailure);
+  injectScript("https://sdk.rvndn.com/semsearch/v1/modal.dev.min.js?v=2025022401", initWidget, data.gtmOnFailure);
 }
 
 
