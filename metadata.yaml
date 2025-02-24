@@ -1,5 +1,7 @@
 homepage: "https://www.raventic.com"
 documentation: "https://doc.raventic.dev/semantic-search/"
 versions:
+  - sha: 907f09b023ece8312f039b0dfb1acc8078d3fa56
+    changeNotes: Ability to set widget z-index
   - sha: f4e0987946f39f3c95900f31cce7f4af2bc73f28
     changeNotes: Initial version
