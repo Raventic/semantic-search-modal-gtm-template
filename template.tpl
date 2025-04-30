@@ -73,6 +73,30 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
+    "type": "CHECKBOX",
+    "name": "csp",
+    "checkboxText": "The site uses Content Security Policy directives",
+    "simpleValueType": true
+  },
+  {
+    "type": "TEXT",
+    "name": "cspNonce",
+    "displayName": "CSP nonce value",
+    "simpleValueType": true,
+    "enablingConditions": [
+      {
+        "paramName": "csp",
+        "paramValue": true,
+        "type": "EQUALS"
+      }
+    ],
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
+  },
+  {
     "type": "TEXT",
     "name": "targetElementSelector",
     "displayName": "Target element selector",
@@ -617,7 +641,7 @@ const makeTableMap = require('makeTableMap');
 const encodeUri = require('encodeUri');
 
 const initWidget = () => {
-  const version = "2025022401";
+  const version = "20250430001";
 
   const dataLayerPush = createQueue('dataLayer');
   const raventicLayerPush = createQueue('raventicLayer');
@@ -723,6 +747,8 @@ const initWidget = () => {
       cartConfig: cc,
       
       zIndex: data.zIndex ? data.zIndex : 99999,
+      
+      cspNonce: data.cspNonce ? data.cspNonce : undefined,
     },
     (instanceId) => {
       dataLayerPush({
