@@ -1,6 +1,8 @@
 homepage: "https://www.raventic.com"
 documentation: "https://doc.raventic.dev/semantic-search/"
 versions:
+  - sha: 71f84b1c78f81b3dd1e56ebc2058664b8637b842
+    changeNotes: CSP nonce support
   - sha: 907f09b023ece8312f039b0dfb1acc8078d3fa56
     changeNotes: Ability to set widget z-index
   - sha: f4e0987946f39f3c95900f31cce7f4af2bc73f28
